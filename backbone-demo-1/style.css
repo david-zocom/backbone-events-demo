@@ -19,7 +19,7 @@ h1::after, h1::before {
 }
 
 .header_wrapper {
-  border-bottom:30px dash tomato;
+  border-bottom: 5px solid double dashed tomato;
   margin: 0 0 10px 0;
   height: 200px;
   width: 100%;
@@ -28,4 +28,3 @@ h1::after, h1::before {
   background-color:rgba(255,255,200, 0.3);
   background-position: center;
 }
-/* #removeGoatFromCart { text-indent: -99999px; line-height: 0; } #removeGoatFromCart::after { content: "'ta bort' (Döda) en get. :("; text-indent: 0; display: block; line-height: initial; } */

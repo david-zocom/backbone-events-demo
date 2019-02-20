@@ -7,6 +7,14 @@ const data = {
 const CartModel = Backbone.Model.extend({
 	defaults: {
 		numberOfItems: 0
+	},
+	increase: function() {
+		let oldValue = this.get('numberOfItems');
+		this.set({ numberOfItems: oldValue + 1 });
+	},
+	decrease: function() {
+		let oldValue = this.get('numberOfItems');
+		this.set({ numberOfItems: oldValue - 1 });
 	}
 });
 
@@ -14,6 +22,9 @@ let cartModelInstance = new CartModel({});
 console.log(cartModelInstance.get('numberOfItems'));
 
 const CartView = Backbone.View.extend({
+	initialize: function() {
+		this.listenTo(this.model, 'change', this.render);
+	},
 	render: function() {
 		let numberOfItems = this.model.get('numberOfItems');
 		if( numberOfItems === 0 ) {
@@ -26,6 +37,32 @@ const CartView = Backbone.View.extend({
 	}
 });
 
+const GoatButtonView = Backbone.View.extend({
+	initialize: function() {
+		this.listenTo(this.model, 'change', this.render);
+	},
+	render: function() {
+		let addEnabled = 'disabled';
+		if( cartModelInstance.get('numberOfItems') > 0 ) {
+			addEnabled = '';
+		}
+		let addButton = `<button id="addGoatToCart">Lägg till get i kundvagnen</button>`;
+		let removeButton = `<button id="removeGoatFromCart" ${addEnabled}>Ta bort get</button>`;
+		let content = `${addButton} ${removeButton} <button>Köp nu!</button>`;
+		this.$el.html(content);
+	},
+	events: {
+		"click #addGoatToCart": 'addGoatToCart',
+		"click #removeGoatFromCart": 'removeGoatFromCart'
+	},
+	addGoatToCart: function() {
+		this.model.increase();
+	},
+	removeGoatFromCart: function() {
+		this.model.decrease();
+	}
+});
+
 
 
 $(document).ready(function() {
@@ -33,26 +70,14 @@ $(document).ready(function() {
 		el: '.cartContainer',
 		model: cartModelInstance
 	});
+	let goatButtonViewInstance = new GoatButtonView({
+		el: '.storeContainer',
+		model: cartModelInstance
+	})
 
 	// cartViewInstance.$el = ...
 	cartViewInstance.render();
-
-	$('#addGoatToCart').on('click', function(event) {
-		let count = cartModelInstance.get('numberOfItems');
-		cartModelInstance.set({ numberOfItems: count + 1 });
-		cartViewInstance.render();
-		if( count === 0 ) {
-			$('#removeGoatFromCart').prop( "disabled", false );
-		}
-	});
-	$('#removeGoatFromCart').on('click', function(event) {
-		let count = cartModelInstance.get('numberOfItems');
-		cartModelInstance.set({ numberOfItems: count - 1 });
-		cartViewInstance.render();
-		if( count <= 1 ) {
-			$('#removeGoatFromCart').prop( "disabled", true );
-		}
-	});
+	goatButtonViewInstance.render();
 });
 
 
