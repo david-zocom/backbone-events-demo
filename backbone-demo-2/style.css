@@ -1,30 +1,101 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Special+Elite');
 
+html, body {
+
+  cursor: url("http://downloads.totallyfreecursors.com/cursor_files/unicorn.ani"), url("http://downloads.totallyfreecursors.com/thumbnails/unicorn.gif "), auto;
+}
+
+html {
+   min-height: 100%;
+  /* It's over 9000! */
+}
+
 * {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+span {
+  font-weight: 800;
+}
 
 body {
+  font-family: 'Special Elite', cursive;
   margin: 0;
-  padding: 1em;
-  background-color: #FFE2F5;
+  padding: 0.3em;
+  background: linear-gradient(to bottom left, #66ccff -1%, #ffccff 93%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
 }
-/* button {
-	border: 0;
-	border-radius: 25%;
-	margin: 0.4em;
-	padding: 0.3em;
-} */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-content: center;
+}
+
+button {
+  font-family: 'Special Elite', cursive;
+  font-size: 1em;
+  letter-spacing: 5px;
+  color: #fff;
+  margin: 0.5em 0 0.5em 0;
+  padding: 0.6em 1em 0.6em 1em;
+  border-radius: 0.5em;
+  border: 1px solid #000;
+  background: -webkit-linear-gradient(pink, green, blue, red, blue, green, pink);
+  background: -o-linear-gradient(pink, green, blue, red, blue, green, pink);
+  background: -moz-linear-gradient(pink, green, blue, red, blue, green, pink);
+  background: linear-gradient(pink, green, blue, red, blue, green, pink);
+}
+
+button:hover {
+  background: -webkit-repeating-radial-gradient(blue, pink 10%, green 15%);
+  background: -o-repeating-radial-gradient(blue, pink 10%, green 15%);
+  background: -moz-repeating-radial-gradient(blue, pink 10%, green 15%);
+  background: repeating-radial-gradient(blue, pink 10%, green 15%);
+  cursor: url("http://downloads.totallyfreecursors.com/cursor_files/link349.ani"), url("http://downloads.totallyfreecursors.com/thumbnails/link346.gif"), 500%;
+}
+
+input {
+  font-size: 1em;
+  padding: 0.4em;
+  margin: 0.5em auto 0.5em auto;
+  display: block;
+  text-align: center;
+  border-radius: 0.5em;
+  border: inset 3px;
+}
+input.editName, input.editRace {
+   display: inline-block;
+   color: #fff;
+   background: rgba(0,0,0,0.3);
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
 
 h1 {
-	margin:0
-	text-align: center;
-	letter-spacing: 13px;
-	font-weight: 600;
-	font-family: 'Special Elite', cursive;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin: 0 auto;
+  text-align: center;
+  letter-spacing: 13px;
+  font-weight: 600;
+  font-family: 'Special Elite', cursive;
+  margin: 1em 0 1em 0;
+  border-bottom: 15px solid #00b0ff;
+  border-radius: 10em;
 }
 
 h1::after, h1::before {
@@ -42,5 +113,123 @@ h1::after, h1::before {
   align-items: center;
   justify-content: center;
   align-content: center;
-  padding: 1.4em;
+  padding: 0.4em;
+}
+
+#lordOfTheRingsCollection ul {
+  list-style-type: armenian;
+  padding: 0.2em 1em;
+}
+#lordOfTheRingsCollection li {
+  padding: 0.2em;
+  border-bottom: 1px dashed 2px #00b0ff;
+}
+
+.animateWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 2em;
+  border-radius: 1400px 400px 30000px 30000px;
+  height: 200px;
+  width: 200px;
+  border-right: 20px solid #00b0ff;
+  border-left: 20px solid #00b0ff;
+  /* border-left:20px solid #00b0ff; */
+  /* border-right:20px solid #00b0ff; */
+}
+
+.animateContainer {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0 auto; */
+  padding: 20px;
+  border-radius: 50%;
+  border-top: 20px solid #00b0ff;
+  border-bottom: 20px solid #00b0ff;
+}
+
+.spinner {
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  border: 5px solid #00b0ff;
+  border-radius: 50%;
+  margin: 0 1em;
+  overflow: hidden;
+  animation: rotation 1s linear alternate infinite;
+  transform-origin: center;
+}
+
+.spinner:after {
+  background-color: #00b0ff;
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  animation: filling 1s linear infinite alternate;
+}
+
+
+@keyframes rotation {
+  45% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(90deg)
+  }
+}
+
+@keyframes filling {
+  0% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+.loader {
+  border: 16px solid orange;
+  border-radius: 50%;
+  border-top: 16px solid #ff6666;
+  width: 50%;
+  height: 50%;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    content: '🦄';
+  }
+
+  25% {
+    border-right: 16px solid black;
+    content: '🦄 🦄';
+  }
+
+  75% {
+    border-left: 16px solid transparent;
+    content: '🦄 🦄 🦄';
+  }
+
+  100% {
+    transform: rotate(360deg);
+    border-bottom: 16px solid lime;
+    content: '🦄 🦄 🦄 🦄';
+  }
 }
