@@ -1,10 +1,30 @@
-body {
-	padding: 1em;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
+
+body {
+  margin: 0;
+  padding: 1em;
+  background-color: #FFE2F5;
+  text-align: center;
+}
+/* button {
+	border: 0;
+	border-radius: 25%;
+	margin: 0.4em;
+	padding: 0.3em;
+} */
+
 h1 {
-   text-align: center;
-   letter-spacing: 3px;
-   font-weight:600;
+	margin:0
+	text-align: center;
+	letter-spacing: 13px;
+	font-weight: 600;
+	font-family: 'Special Elite', cursive;
 }
 
 h1::after, h1::before {
@@ -12,6 +32,15 @@ h1::after, h1::before {
   display: inline-block;
   width: 36px;
   height: 36px;
-  content:"";
+  content: "🦄";
   margin: 0 15px;
+}
+
+#deliciousUnicornToggleBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding: 1.4em;
 }
