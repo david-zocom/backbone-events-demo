@@ -1,0 +1,17 @@
+body {
+	padding: 1em;
+}
+h1 {
+   text-align: center;
+   letter-spacing: 3px;
+   font-weight:600;
+}
+
+h1::after, h1::before {
+  background-size: 36px;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  content:"";
+  margin: 0 15px;
+}
